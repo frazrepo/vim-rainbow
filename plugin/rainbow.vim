@@ -58,18 +58,20 @@ func! rainbow#load(...)
                     \ ['(', ')'],
                     \ ['\[', '\]'],
                     \ ['{', '}'],
-                    \ ['\v%(<operator\_s*)@<!%(%(\_i|template\_s*)@<=\<[<#=]@!|\<@<!\<[[:space:]<#=]@!)', '>']
+                    \ ['\v%(<operator\_s*)@<!%(%(\i|^\_s*|template\_s*)@<=\<[<#=]@!|\<@<!\<[[:space:]<#=]@!)', '\v%(-)@<!\>']
+                    \ ]
+    elseif &ft == 'rust' || &ft == 'cs' || &ft == 'java'
+        let b:loaded = [
+                    \ ['(', ')'],
+                    \ ['\[', '\]'],
+                    \ ['{', '}'],
+                    \ ['\v%(\i|^\_s*)@<=\<[<#=]@!|\<@<!\<[[:space:]<#=]@!', '\v%(-)@<!\>']
                     \ ]
     else
         let b:loaded = [ ['(', ')'], ['\[', '\]'], ['{', '}'] ]
     endif
 
     let b:operators = (a:0 < 2) ? '"\v[{\[(<_"''`#*/>)\]}]@![[:punct:]]|\*/@!|/[/*]@!|\<#@!|#@<!\>"' : a:2
-
-    let str = 'TOP'
-    for each in range(1, s:max)
-        let str .= ',lv'.each
-    endfor
 
     if b:operators != ''
         exe 'syn match op_lv0 '.b:operators
@@ -80,6 +82,11 @@ func! rainbow#load(...)
             endfor
         endfor
     endif
+
+    let str = 'TOP'
+    for each in range(1, s:max)
+        let str .= ',lv'.each
+    endfor
 
     let cmd = 'syn region %s matchgroup=%s start=+%s+ end=+%s+ containedin=%s contains=%s,%s,@Spell fold'
     for [left , right] in b:loaded
