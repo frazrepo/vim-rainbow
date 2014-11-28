@@ -1,3 +1,8 @@
+#NOTICE
+Please try [luochen's repository](https://github.com/luochen1990/rainbow). I don't like
+rainbow highlighting anymore and he's using GitHub now. This repository is frozen for
+historical reasons now (specific c++ support, fixes to be backported, etc).
+
 #Rainbow Parentheses Improved
 
 This is a fork of [Rainbow Parentheses Improved](http://www.vim.org/scripts/script.php?script_id=4176) by [luo chen](http://www.vim.org/account/profile.php?user_id=53618).
