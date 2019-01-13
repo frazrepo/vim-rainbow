@@ -1,9 +1,7 @@
-#NOTICE
-Please try [luochen's repository](https://github.com/luochen1990/rainbow). I don't like
-rainbow highlighting anymore and he's using GitHub now. This repository is frozen for
-historical reasons now (specific c++ support, fixes to be backported, etc).
+# NOTICE
+This is a fork of https://github.com/oblitum/rainbow 
 
-#Rainbow Parentheses Improved
+# Rainbow Parentheses Improved
 
 This is a fork of [Rainbow Parentheses Improved](http://www.vim.org/scripts/script.php?script_id=4176) by [luo chen](http://www.vim.org/account/profile.php?user_id=53618).
 
@@ -29,7 +27,15 @@ be surrounded by spaces. If not, it'll be treated as an open template's angle
 bracket (although, still some checking applies for the `template` or `operator`
 keyword, for C++ for example).
 
-###Simple Configuration
+# Installation
+
+Vundle : Add this to .vimrc
+
+```vim
+Plugin 'frazrepo/vim-rainbow'
+```
+
+# Simple Configuration
 
 Put this on your `.vimrc` for loading it for specific file types:
 
@@ -42,7 +48,8 @@ or just this to enable it globally:
 let g:rainbow_active = 1
 ```
 
-###Advanced Configuration
+# Advanced Configuration
+
 An advanced configuration allows you to define what parentheses to use
 for each type of file. You can also determine the colors of your
 parentheses by this way (read file vim73/rgb.txt for all named colors).
@@ -63,12 +70,12 @@ let g:rainbow_guifgs = ['RoyalBlue3', 'DarkOrange3', 'DarkOrchid3', 'FireBrick']
 let g:rainbow_ctermfgs = ['lightblue', 'lightgreen', 'yellow', 'red', 'magenta']
 ```
 
-###User Command
+# User Command
 ```
 :RainbowToggle  --you can use it to toggle this plugin.
 :RainbowLoad    --you can use it to load/reload this plugin.
 ```
-I recommend [VAM](https://github.com/MarcWeber/vim-addon-manager) or [Vundle](https://github.com/gmarik/vundle) for plugin management.
+# Screenshots
 
 Here's a sample of a dark [gruvbox](https://github.com/morhetz/gruvbox) vim session:
 
@@ -78,4 +85,3 @@ and here's a slightly lighter [dark solarized](https://github.com/flazz/vim-colo
 
 <a href="http://i.imgur.com/j4g6L92.png">![Lighter VIM Session](http://i.imgur.com/j4g6L92.png)</a>
 
-I thank Luo for being supportive and accepting the operator highlighting idea.
